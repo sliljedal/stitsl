@@ -1,0 +1,93 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+    <meta charset="ISO-8859-1" />
+    <title>{% block head_title %}{% endblock %}-StoreIT</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="{% static 'css\bootstrap.css' %}" rel="stylesheet" />
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js\bootstrap.js' %}"></script>
+    
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="{% url 'home' %}">StoreIT</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Storage
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{% url 'item-list' %}">Item</a>
+                                <a class="dropdown-item" href="#">Box</a>
+                                <a class="dropdown-item" href="#">Storage</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Account
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{% url 'item-list' %}">Edit account</a>
+                                <a class="dropdown-item" href="#">Settings</a>
+                                <div class="dropdown-divider"></div>
+                                {% if request.user.is_authenticated %}
+                                    <a class="dropdown-item" href="{% url 'account_logout'%}">Log out</a>
+                                {% else %}
+                                    <a class="dropdown-item" href="{% url 'account_login' %}">Log in</a>
+                                {% endif %}
+                                
+                            </div>
+                        </li>
+                  
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="wrapper">
+        <div class="content">
+            <div class="top">
+                {% block top-content %}
+
+                {% endblock %}
+
+            </div>
+            <div class="left-column column">
+                {% block left-content %}
+
+                {% endblock %}
+            </div>
+            <div class="right-column column">
+                {% block right-content %}
+
+                {% endblock %}
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="wrapper">
+            <p>Copyright StoreIT 	&#9400; LiljedalDive</p>
+        </div>
+    </footer>
+</body>
+</html>

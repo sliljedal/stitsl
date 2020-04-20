@@ -1,0 +1,44 @@
+{% extends "account/base.html" %}
+
+{% block top-content %}
+
+<div class="jumbotron">
+    <h1>StoreIT</h1>
+    <p class="lead">StoreIT is a free storage manager APP which keep track of all your stuff. Sign up today!</p>
+    <p><a href="{% url 'account_signup'%}" class="btn btn-primary btn-large">Sign Up &raquo;</a></p>
+</div>
+{% endblock %}
+{% block left-content %}
+<div class="row">
+        <div class="col-md-6">
+            <h2>Getting started</h2>
+            <p>
+                Django gives you a powerful, patterns-based way to build dynamic websites that
+                enables a clean separation of concerns and gives you full control over markup
+                for enjoyable, agile development.
+            </p>
+            <p><a class="btn btn-default" href="https://djangobook.com/django-tutorials/">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-6">
+            <h2>Get more libraries</h2>
+            <p>The Python Package Index is a repository of software for the Python programming language.</p>
+            <p><a class="btn btn-default" href="https://pypi.org/">Learn more &raquo;</a></p>
+        </div>
+    </div>
+    {% endblock %}
+    {% block right-content %}
+<div class="row">
+    <div class="col-md-6">
+        <h2>Get more libraries</h2>
+        <p>The Python Package Index is a repository of software for the Python programming language.</p>
+        <p><a class="btn btn-default" href="https://pypi.org/">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-6">
+        <h2>Microsoft Azure</h2>
+        <p>You can easily publish to Microsoft Azure using Visual Studio. Find out how you can host your application using a free trial today.</p>
+        <p><a class="btn btn-default" href="http://azure.microsoft.com">Learn more &raquo;</a></p>
+    </div>
+</div>
+{% endblock %}
+
+
